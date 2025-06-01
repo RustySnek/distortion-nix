@@ -30,7 +30,7 @@ in
       }
       disko.nixosModules.disko
       impermanence.nixosModules.impermanence
-      nur.nixosModules.nur
+      nur.modules.nixos.default
       unstableModule
       ./distortion
       {
