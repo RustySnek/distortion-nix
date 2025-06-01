@@ -39,6 +39,7 @@
   boot.initrd.checkJournalingFS = false;
   services.libinput.enable = true;
   services.spice-vdagentd.enable = true;
+  hardware.nvidia.open = false;
   services.xserver = {
     videoDrivers = [
       "qxl"
