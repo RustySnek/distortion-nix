@@ -16,6 +16,7 @@
     ];
     password = "disarray";
     shell = pkgs.fish;
+    packages = [ ];
     openssh.authorizedKeys.keys = [
     ];
   };
