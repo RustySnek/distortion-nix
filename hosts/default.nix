@@ -4,12 +4,19 @@
   impermanence,
   nur,
   nixpkgs-unstable,
+  nixpkgs,
   ...
 }:
 let
-  unstableOverlay = final: prev: {
-    unstable = nixpkgs-unstable.legacyPackages.${prev.system};
+  pkgs = import nixpkgs {
+    system = "x86_64-linux";
+    config.allowUnfree = true;
   };
+  pkgs-unstable = import nixpkgs-unstable {
+    system = "x86_64-linux";
+    config.allowUnfree = true;
+  };
+  unstableOverlay = final: prev: { unstable = pkgs-unstable; };
   unstableModule =
     {
       config,
@@ -22,12 +29,10 @@ let
 in
 {
   distortion = lib.nixosSystem {
+    pkgs = pkgs;
     system = "x86_64-linux";
     specialArgs = { inherit impermanence; };
     modules = [
-      {
-        nixpkgs.config.allowUnfreePredicate = _: true;
-      }
       disko.nixosModules.disko
       impermanence.nixosModules.impermanence
       nur.modules.nixos.default
