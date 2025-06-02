@@ -8,7 +8,7 @@
   virtualisation.docker.enable = true;
   virtualisation.docker.enableNvidia = true;
   virtualisation.docker.rootless = {
-    enable = true;
+    enable = false;
     setSocketVariable = true;
   };
 }
