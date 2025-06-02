@@ -43,6 +43,7 @@
 
   time.timeZone = "Europe/Warsaw";
   environment.systemPackages = with pkgs; [
+    git
     unstable.devenv
     unstable.neovim
     glib
