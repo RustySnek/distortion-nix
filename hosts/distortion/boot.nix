@@ -26,7 +26,13 @@
     "virtio_pci"
     "sr_mod"
   ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [
+    "kvm-amd"
+    "nvidia"
+    "nvidia_modeset"
+    "nvidia_uvm"
+    "nvidia_drm"
+  ];
   boot.initrd.kernelModules = [
     "nvme"
     "dm-snapshot"
@@ -39,8 +45,10 @@
   boot.initrd.checkJournalingFS = false;
   services.libinput.enable = true;
   services.spice-vdagentd.enable = true;
+  hardware.nvidia-container-toolkit.enable = true;
   hardware.nvidia = {
     open = false;
+    modesetting.enable = true;
   };
   services.xserver = {
     videoDrivers = [
