@@ -45,7 +45,6 @@
   boot.initrd.checkJournalingFS = false;
   services.libinput.enable = true;
   services.spice-vdagentd.enable = true;
-  hardware.nvidia-container-toolkit.enable = true;
   hardware.nvidia = {
     open = false;
     modesetting.enable = true;
