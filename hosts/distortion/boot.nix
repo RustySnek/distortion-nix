@@ -52,7 +52,6 @@
   };
   services.xserver = {
     videoDrivers = [
-      "qxl"
       "nvidia"
     ];
     enable = false;
