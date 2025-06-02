@@ -57,6 +57,7 @@
     xkb.layout = "us";
   };
   boot.blacklistedKernelModules = [ ];
+  hardware.nvidia-container-toolkit.enable = true;
 
   hardware.enableRedistributableFirmware = true;
   hardware.graphics.enable = true;
