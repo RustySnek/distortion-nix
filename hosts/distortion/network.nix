@@ -5,15 +5,17 @@
   services.caddy = {
     enable = true;
     virtualHosts."http://localhost:6969".extraConfig = ''
-      handle_path /comfy* {
+      handle_path /comfy {
           reverse_proxy localhost:7860
       }
 
-      handle_path /chat* {
+      redir /chat /chat/
+      handle_path /chat/ {
           reverse_proxy localhost:7861
       }
 
-      respond "Grim"
+
+      reverse_proxy localhost:7861
     '';
   };
 }
