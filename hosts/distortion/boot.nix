@@ -46,7 +46,6 @@
   services.libinput.enable = true;
   services.spice-vdagentd.enable = true;
   hardware.nvidia = {
-    datacenter.enable = true;
     open = false;
     modesetting.enable = true;
   };
