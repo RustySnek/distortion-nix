@@ -49,13 +49,6 @@
     open = false;
     modesetting.enable = true;
   };
-  services.xserver = {
-    videoDrivers = [
-      "nvidia"
-    ];
-    enable = false;
-    xkb.layout = "us";
-  };
   boot.blacklistedKernelModules = [ ];
   hardware.nvidia-container-toolkit.enable = true;
 
