@@ -4,7 +4,7 @@
   networking.firewall.allowedTCPPorts = [ 1337 ];
   services.caddy = {
     enable = true;
-    virtualHosts."localhost:1337".extraConfig = ''
+    virtualHosts."http://localhost:1337".extraConfig = ''
       handle_path /comfy/* {
           reverse_proxy localhost:7860
       }
