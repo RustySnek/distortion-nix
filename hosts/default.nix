@@ -11,10 +11,12 @@ let
   pkgs = import nixpkgs {
     system = "x86_64-linux";
     config.allowUnfree = true;
+    config.nvidia.acceptLicense = true;
   };
   pkgs-unstable = import nixpkgs-unstable {
     system = "x86_64-linux";
     config.allowUnfree = true;
+    config.nvidia.acceptLicense = true;
   };
   unstableOverlay = final: prev: { unstable = pkgs-unstable; };
   unstableModule =
