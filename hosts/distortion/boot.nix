@@ -46,11 +46,13 @@
   services.libinput.enable = true;
   services.spice-vdagentd.enable = true;
   hardware.nvidia = {
+    datacenter.enable = true;
     open = false;
     modesetting.enable = true;
   };
   boot.blacklistedKernelModules = [ ];
   hardware.nvidia-container-toolkit.enable = true;
+  hardware.nvidia-container-toolkit.suppressNvidiaDriverAssertion = true;
 
   hardware.enableRedistributableFirmware = true;
   hardware.graphics.enable = true;
