@@ -10,6 +10,15 @@
       }
 
       redir /chat /chat/
+
+      redir /kobold /kobold/
+
+      handle_path /kobold/* {
+        rewrite * /api{path}
+        reverse_proxy localhost:7777
+      }
+
+      redir /chat /chat/
       handle_path /chat/ {
           reverse_proxy localhost:7861
       }
