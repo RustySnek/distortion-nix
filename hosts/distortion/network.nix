@@ -1,7 +1,7 @@
 { ... }:
 {
   networking.useDHCP = true;
-  networking.firewall.allowedTCPPorts = [ 1337 ];
+  networking.firewall.allowedTCPPorts = [ 6969 ];
   services.caddy = {
     enable = true;
     virtualHosts."http://localhost:6969".extraConfig = ''
