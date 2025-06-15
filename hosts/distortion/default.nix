@@ -53,6 +53,10 @@
   time.timeZone = "Europe/Warsaw";
   environment.systemPackages = with pkgs; [
     git
+    python310Packages.pip
+    numpyNoTests
+    pandasNoTests
+    python310Full
     unstable.devenv
     unstable.neovim
     glib

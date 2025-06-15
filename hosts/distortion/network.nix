@@ -1,32 +1,5 @@
 { ... }:
 {
   networking.useDHCP = true;
-  networking.firewall.allowedTCPPorts = [
-    6969
-    7979
-  ];
-  services.caddy = {
-    enable = false;
-    virtualHosts."http://localhost:6969".extraConfig = ''
-      handle_path /comfy {
-          reverse_proxy localhost:7860
-      }
-
-      redir /chat /chat/
-
-      redir /kobold /kobold/
-
-      handle_path /kobold/* {
-        rewrite * /api{path}
-        reverse_proxy localhost:7777
-      }
-
-      redir /chat /chat/
-      handle_path /chat/ {
-          reverse_proxy localhost:7861
-      }
-
-      reverse_proxy localhost:7861
-    '';
-  };
+  networking.firewall.enable = false;
 }
