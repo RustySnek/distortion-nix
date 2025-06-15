@@ -47,6 +47,7 @@
   services.devmon.enable = true;
   services.udisks2.enable = true;
   programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
   services.avahi.enable = true;
   services.avahi.nssmdns4 = true;
   services.avahi.openFirewall = true;
