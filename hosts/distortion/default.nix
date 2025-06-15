@@ -54,8 +54,12 @@
   environment.systemPackages = with pkgs; [
     git
     python310Packages.pip
-    numpyNoTests
-    pandasNoTests
+    (python310Packages.pandas.overridePythonAttrs (old: {
+      doCheck = false;
+    }))
+    (python310Packages.numpy.overridePythonAttrs (old: {
+      doCheck = false;
+    }))
     python310Full
     unstable.devenv
     unstable.neovim
