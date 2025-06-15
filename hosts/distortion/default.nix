@@ -56,7 +56,6 @@
 
   environment.systemPackages = with pkgs; [
     git
-    python310Full
     unstable.devenv
     unstable.neovim
     glib
