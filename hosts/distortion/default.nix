@@ -46,20 +46,15 @@
   };
   services.devmon.enable = true;
   services.udisks2.enable = true;
+  programs.direnv.enable = true;
   services.avahi.enable = true;
   services.avahi.nssmdns4 = true;
   services.avahi.openFirewall = true;
 
   time.timeZone = "Europe/Warsaw";
+
   environment.systemPackages = with pkgs; [
     git
-    python310Packages.pip
-    (python310Packages.pandas.overridePythonAttrs (old: {
-      doCheck = false;
-    }))
-    (python310Packages.numpy.overridePythonAttrs (old: {
-      doCheck = false;
-    }))
     python310Full
     unstable.devenv
     unstable.neovim
