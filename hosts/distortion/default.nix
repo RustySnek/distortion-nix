@@ -15,6 +15,15 @@
     ./boot.nix
   ];
 
+  services.openssh = {
+    enable = true;
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+      ChallengeResponseAuthentication = false;
+    };
+  };
+
   services.passSecretService.enable = true;
   services.postgresql = {
     enable = true;
@@ -48,6 +57,11 @@
     unstable.neovim
     glib
     man-pages-posix
+    ffmpeg
+    tts
+    whisperx
+    wget
+    yt-dlp
   ];
 
   services.dbus.enable = true;
