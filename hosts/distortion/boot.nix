@@ -17,14 +17,9 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   boot.kernelPackages = pkgs.unstable.linuxPackages_latest;
   boot.initrd.availableKernelModules = [
-    "xhci_pci"
-    "ahci"
-    "usbhid"
-    "usb_storage"
-    "sd_mod"
     "virtio_blk"
     "virtio_pci"
-    "sr_mod"
+    "virtio_scsi"
   ];
   boot.kernelModules = [
     "kvm-amd"
@@ -48,6 +43,7 @@
   hardware.nvidia = {
     open = false;
     modesetting.enable = true;
+    package = pkgs.unstable.linuxPackages_latest.nvidiaPackages.beta;
   };
   services.xserver = {
     videoDrivers = [
