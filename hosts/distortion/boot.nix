@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   ...
 }:
 {
@@ -15,10 +16,10 @@
   };
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-  boot.kernelPackages = pkgs.unstable.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.initrd.availableKernelModules = [
-    "virtio_blk"
     "virtio_pci"
+    "virtio_blk"
     "virtio_scsi"
   ];
   boot.kernelModules = [
@@ -41,9 +42,9 @@
   services.libinput.enable = true;
   services.spice-vdagentd.enable = true;
   hardware.nvidia = {
-    open = false;
+    open = true;
     modesetting.enable = true;
-    package = pkgs.unstable.linuxPackages_latest.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
   };
   services.xserver = {
     videoDrivers = [

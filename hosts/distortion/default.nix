@@ -62,7 +62,6 @@
     man-pages-posix
     ffmpeg
     tts
-    whisperx
     wget
     yt-dlp
   ];
@@ -87,5 +86,5 @@
     "flakes"
   ];
   networking.hostName = "distortion";
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 }
