@@ -2,7 +2,6 @@
   lib,
   disko,
   impermanence,
-  nur,
   nixpkgs-unstable,
   nixpkgs,
   ...
@@ -37,15 +36,8 @@ in
     modules = [
       disko.nixosModules.disko
       impermanence.nixosModules.impermanence
-      nur.modules.nixos.default
       unstableModule
       ./distortion
-      {
-        nixpkgs.overlays = [
-          nur.overlay
-          unstableOverlay
-        ];
-      }
     ];
   };
 }

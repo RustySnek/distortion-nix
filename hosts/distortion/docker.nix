@@ -2,7 +2,6 @@
 {
   environment.systemPackages = with pkgs; [
     docker-compose
-    nvidia-container-toolkit
   ];
   virtualisation.docker.enable = true;
   virtualisation.docker.package = pkgs.docker_25;
@@ -10,4 +9,5 @@
     enable = false;
     setSocketVariable = true;
   };
+  hardware.nvidia-container-toolkit.mount-nvidia-executables = true;
 }
